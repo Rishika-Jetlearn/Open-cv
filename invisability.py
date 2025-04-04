@@ -29,8 +29,13 @@ while vid.isOpened():
     mask2=cv2.bitwise_not(mask1)
 
     r1=cv2.bitwise_and(bg,bg,mask=mask1)
-    r2=cv2.bitwise_and(frame,frame,mask=mask2)
+    r2=cv2.bitwise_and(f,f,mask=mask2)
     output=cv2.add(r1,r2)
-    cv2.imshow("output",output)
+    a,b=output.shape[0:2]
+    r=cv2.getRotationMatrix2D((b/2,a/2),90,1)
+    rotated=cv2.warpAffine(output,r,(b,a))
+    cv2.imshow("output",rotated)
     cv2.waitKey(10)
+
+
 
