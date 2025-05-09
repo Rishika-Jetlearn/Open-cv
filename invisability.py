@@ -5,7 +5,7 @@ import numpy as np
 hsvblue=cv2.cvtColor(blue,cv2.COLOR_BGR2HSV)
 print(hsvblue)"""
 
-vid=cv2.VideoCapture("video.mp4")
+vid=cv2.VideoCapture(0)
 
 for i in range(60):
     s,bg=vid.read()
